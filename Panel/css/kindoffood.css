@@ -1,0 +1,126 @@
+body {
+    font-family: "Lato", sans-serif;
+}
+.wallpaper{
+    background-image: url('../img/foo.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    background-repeat: repeat-y;
+    background-position: top center;
+    background-position-x: -500px 0;
+    opacity: .8;
+    z-index: 0;
+    height:100%;
+    width: 100%;
+    margin: 0px auto;
+    position: fixed;
+}
+
+.sidenav {
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: -190px;
+    background-color: #1b1a1a;
+    overflow-x: hidden;
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+}
+.nav-ul{
+    list-style: none;
+}
+.nav-ul>li{
+    height: 24px;
+    margin-top: 20px;
+    width: 100%;
+}
+.nav-pin{
+    margin-top: 5px !important;
+}
+.pushpin-ico{
+    float: right;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.pushpin-ico:hover{
+    cursor: pointer;
+}
+#pin-ico{
+    visibility: hidden;
+    -webkit-transition: transform 0.5s;
+    transition: transform 0.5s;
+}
+#pin-ico:hover{
+    transform: rotate(23deg);
+   
+}
+#unpin-ico{
+    visibility: hidden;
+}
+#unpin-ico:hover{
+    transform: scale(1.1,1.1);
+}
+.nav-title{
+    margin-left: 50px;
+    margin-top: 0px !important;
+    
+}
+.navitem{
+    -webkit-transition: 0.5s;
+    transition: 0.5s;
+    margin-left: 175px;
+    float: left;
+    position: relative;
+}
+.itm-shadow{
+    position: absolute;
+    top: 0;
+    left: -6px;
+    width: 0%;
+    height: 35px;
+    z-index: -1;
+    background-color: #1e5661;
+    opacity: 0.7;
+    -webkit-transition: 0.5s ease-in-out;
+    transition: 0.5s ease-in-out;
+    border-top-right-radius: 80rem;
+    border-bottom-right-radius: 80rem;
+    border-top-left-radius: 20rem;
+    border-bottom-left-radius: 20rem;
+}
+.navitem:hover .itm-shadow{
+    width: 80%;
+}
+.navitem:hover{
+    cursor: pointer;
+}
+.navitem .ico{
+    float: left;
+    margin-top: 6px;
+}
+.navitem .txt{
+    color: white;
+    float: left;
+    margin-left: 10px;
+    display: none;
+}
+#main{
+    max-width: 95%;
+    min-height: 800px;
+    margin-left: 120px;
+    margin-right: 120px;
+    overflow-y: hidden;
+    transition: 0.5s;
+    opacity: 1.5;
+}
+#main-contain{
+    width: 100%;
+    min-height: 800px;
+    margin-top: 50px;    
+    
+    position: relative;
+    padding-bottom: 10px;
+    transition: 0.5s;
+}

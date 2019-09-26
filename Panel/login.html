@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Login</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+	<link rel="stylesheet" type="text/css" media="screen" href="./css/bootstrap.min.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" media="screen" href="./animate.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" media="screen" href="./css/login.css">
+    <link rel="shortcut icon" href="./img/ScreenmeLogoBlack.png" type="image/x-icon" />
+	<script src="./js/main.js"></script>
+</head>
+<body>
+	<div class="login">
+		<div id="log-loader">
+
+		</div>
+		<form class="log-content " id="login-form">
+			<br>
+			<div class="log-title">
+				<h2>LOGIN</h2>
+			</div>
+			<div class="boxs" id="email-box">
+                <i id="email-ico" class="fas fa-envelope log-ico"></i> 
+				<input id="Email" type="text" class='box-input' placeholder="Email"  onfocus="(this.placeholder == 'Email') && (this.placeholder = '')"
+				onblur="(this.placeholder == '') && (this.placeholder = 'Email')">
+			</div>
+			<div class="boxs" id="pass-box">
+                <i id="pass-ico"class="fas fa-lock log-ico"></i> 
+				<input id="Pass" type="password" class='box-input' placeholder="Password"  onfocus="(this.placeholder == 'Password') && (this.placeholder = '')"
+				onblur="(this.placeholder == '') && (this.placeholder = 'Password')">
+			</div>
+			<br> 
+			<input type="submit" class="boxs" id="login-btn" value="LOGIN">
+		</form>
+	</div>
+	  
+	<script src="./js/jquery.min.js"></script>
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="./js/login.js"></script>
+</body>
+</html>

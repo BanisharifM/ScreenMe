@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Food Ingredient</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/animate.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/panel.css">
+    <link rel="shortcut icon" href="./img/ScreenmeLogoBlack.png" type="image/x-icon" />    
+    <script src="./js/main.js"></script>
+</head>
+<body>
+        <div class="wallpaper" id="wallpaper-ingred"></div>
+        <div class="save-animate">
+            <button id="save"class="save-buttom animated infinite"><p id="save-txt">Save</p></button>
+            <button id="cancel"class="cancel-buttom animated infinite"><p id="cancel-txt">Cancel</p></button>
+            <button id="saved"class="animated infinite wobble saved-buttom animated infinite ">Saved</button>
+        </div>
+        <div class="navbarr"> 
+            <div class="navbarr-title">
+                <h3 class="panel-status" id="panel-status1">FoodIngredient</h3>
+                <h4 id="panel-edit-status"></h4>
+            </div>    
+        </div>
+      
+        <div id="Sidenav" class="row sidenav">
+            <ul class="nav-ul">
+               <li class="nav-pin">
+                    <img  id="screenmeIco" src="./img/screenmeLogoWhite.png" class="custom-logo" alt="ScreenMe" itemprop="logo">
+                    <img class="pushpin-ico" id="pin-ico" src="./img/pin.png">
+                    <img class="pushpin-ico" id="unpin-ico" src="./img/unpin.png">
+                </li>
+               
+                <li class="navitem" id="food">
+                    <div class="itm-shadow" id="food_itm_shadow"></div>
+                    <i class="fas fa-utensils ico" style="font-size:25px;color:white;"></i>
+                    <h4 class="txt">Food Categories</h4>
+                </li>   
+                <li class="navitem" id="plate">
+                    <div class="itm-shadow" id="plate_itm_shadow"></div>
+                    <i class="fas fa-cookie-bite ico" style="font-size:25px;color:white;"></i> 
+                    <h4 class="txt" style="margin-top: 12px">Plate Items</h4>
+                </li>
+                <li class="navitem" id="activity">
+                    <div class="itm-shadow" id="activity_itm_shadow"></div>
+                    <i class="fas fa-running ico" style="font-size:30px;color:white;"></i> 
+                    <h4 class="txt" style="margin-top: 12px">Activities</h4>
+                </li>
+                <li class="navitem" id="user">
+                    <div class="itm-shadow"></div>
+                    <i class="fas fa-users ico" style="font-size:25px;color:white;"></i> 
+                    <h4 class="txt">All Customers</h4>
+                </li>
+                <li class="navitem" id="exit">
+                    <div class="itm-shadow">
+                    </div>
+                    <i class="fas fa-sign-out-alt ico" style="font-size:25px;color:white;"></i>                
+                    <h4 class="txt">exit</h4>
+                </li>
+            </ul>
+        </div>
+    
+    <div id="main">
+        <!--<div class="loader-content"></div>-->
+        <div id="main-contain" class="row">
+
+            <div class="col-sm-8 ingred-item" id="ingred-item"></div>
+            <div class="col-sm-4 ingred-item ">
+                <div class="cat" id="ingredient-cat">  
+                    <i class=" fas fa-plus action-ico" id="category-add"></i>
+                    <i class=" fas fa-trash action-ico" id="category-delete"></i>
+                    
+                    <div class="ingred-item-bar"id="first-bar">&nbsp&nbsp Category</div><br>                        
+                    <!--<div class="cat-item"><input class="categ-textt"><i class=" far fa-times-circle close-icon del-cat"></i></div>-->
+                </div>
+                <div class="ingred-item-content" id="ingred-ingre">
+                        <i class=" fas fa-plus action-ico" id="ingredient-add"></i>
+                        <i class=" fas fa-trash action-ico" id="ingredient-delete"></i>
+                        <!--<i class=" fas fa-edit action-ico" id="ingredient-edit"></i>-->
+                    <div class="ingred-item-bar">&nbsp Ingredients</div>
+                    <!--<div class="line"></div><div id="talkbubble"><i class="fas fa-circle cic"></i><input class="ingred-textt"><i class=" far fa-times-circle close-icon del-ingre"></i></div>-->
+                </div>
+            </div>
+    </div>
+    </div>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/foodIngredient.js"></script>    
+</body>
+</html>

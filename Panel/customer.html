@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Customer</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1"> 
+    <link rel="stylesheet" type="text/css" media="screen" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/animate.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+	<link rel="stylesheet" type="text/css" media="screen" href="./css/panel.css">
+    <link rel="shortcut icon" href="./img/ScreenmeLogoBlack.png" type="image/x-icon" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+    <script src="./js/main.js"></script>
+</head>
+<body>
+        
+        <div class="wallpaper" id="wallpaper-ingred"></div>
+
+        <div class="save-animate">
+            <button id="save"class="save-buttom animated infinite"><p id="save-txt">Save</p>
+            </button>
+            <button id="cancel"class="cancel-buttom animated infinite"><p id="cancel-txt">Cancel</p>
+            </button>
+            <button id="saved"class="animated infinite wobble saved-buttom animated infinite ">Saved
+            </button>
+        </div>
+        <div class="navbarr"> 
+            <div class="navbarr-title">
+                <h3 class="panel-status" id="panel-status2"></h3>
+                <h3 class="panel-status" id="panel-status1">Customer</h3>
+                <h4 id="panel-edit-status"></h4>
+            </div>    
+        </div>
+      
+        <div id="Sidenav" class="row sidenav">
+            <ul class="nav-ul">
+               <li class="nav-pin">
+                    <img  id="screenmeIco" src="./img/screenmeLogoWhite.png" class="custom-logo" alt="ScreenMe" itemprop="logo">
+                    <img class="pushpin-ico" id="pin-ico" src="./img/pin.png">
+                    <img class="pushpin-ico" id="unpin-ico" src="./img/unpin.png">
+                </li>
+               
+                <li class="navitem" id="food">
+                    <div class="itm-shadow" id="food_itm_shadow"></div>
+                    <i class="fas fa-utensils ico" style="font-size:25px;color:white;"></i>
+                    <h4 class="txt">Food Categories</h4>
+                </li>  
+                <li class="navitem" id="plate">
+                    <div class="itm-shadow" id="plate_itm_shadow"></div>
+                    <i class="fas fa-cookie-bite ico" style="font-size:25px;color:white;"></i> 
+                    <h4 class="txt" style="margin-top: 12px">Plate Items</h4>
+                </li>
+                <li class="navitem" id="activity">
+                    <div class="itm-shadow" id="activity_itm_shadow"></div>
+                    <i class="fas fa-running ico" style="font-size:30px;color:white;"></i> 
+                    <h4 class="txt" style="margin-top: 12px">Activities</h4>
+                </li>
+                <li class="navitem" id="user">
+                    <div class="itm-shadow" id="user_itm_shadow"></div>
+                    <i class="fas fa-users ico" style="font-size:25px;color:white;"></i> 
+                    <h4 class="txt">All Customers</h4>
+                </li>
+                <li class="navitem" id="exit">
+                    <div class="itm-shadow">
+                    </div>
+                    <i class="fas fa-sign-out-alt ico" style="font-size:25px;color:white;"></i>                
+                    <h4 class="txt">exit</h4>
+                </li>
+            </ul>
+        </div>
+    
+    <div id="main">
+        <!--<div class="loader-content"></div>-->
+        <div id="main-contain" class="row">
+            <div class="userprofile">
+                <div class="row">
+                    <div class="col-sm-3 avatar">
+                        <div class="avatar-image"><img class="avatar-ico" id="userAvatar"></div>
+                    </div>
+                    <div class="col-sm-9 userprofile-info">
+                        <div class="user-information">
+                             <h2 class="user-firstname">First name : &nbsp<span id="firstName"></span></h2>
+                             <h2 class="user-familyname">Sur name : &nbsp<span id="surName"></span></h2>
+                             <h2 class="user-familyname">Email : &nbsp<span id="email"></span></h2>
+                             <h2 class="user-familyname">Address : &nbsp<span id="address"></span></h2>
+                             <h2 class="user-familyname">Postal Code : &nbsp<span id="postalCode"></span></h2>
+                             <h2 class="user-familyname">Kit status : &nbsp<span id="kitStatus"></span></h2>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-3 ingred-item ">
+                <div class="cat">  
+                    <i class=" fas fa-plus action-ico" id="category-add"style="color: black"></i>
+                    <i class=" fas fa-trash action-ico" id="category-delete" style="color: black"></i>
+                    <div class="ingred-item-bar"id="first-bar">&nbsp&nbsp Foods</div>                        
+                    <table class="table table-striped user-food">
+                        <tbody id="userFoodContain">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="col-sm-3 ingred-item ">
+                <div class="plate plateIt">  
+                    <i class=" fas fa-plus action-ico" id="plate-add" style="color: black"></i>
+                    <i class=" fas fa-trash action-ico" id="plate-delete"style="color: black"></i>    
+                    <div class="ingred-item-bar"id="first-bar">&nbsp&nbsp plateItems</div>                        
+                    <table class="table table-striped  user-plate">
+                        <tbody id="userPlateContain">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="col-sm-3 ingred-item ">
+                <div class="activ">  
+                    <i class=" fas fa-plus action-ico" id="activity-add"style="color: black"></i>
+                    <i class=" fas fa-trash action-ico" id="activity-delete" style="color: black"></i>
+                    <div class="ingred-item-bar"id="first-bar">&nbsp&nbsp Activities</div>                        
+                    <table class="table table-striped user-activity">
+                        <tbody id="userActivityContain">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-sm-3 ingred-item ">
+                <div class="test">  
+                    <i class=" fas fa-editt action-ico" style="font-size: 20px;color: black ;margin-bottom:5px;"id="test-edit"></i>
+                    <div class="ingred-item-bar"id="first-bar">&nbsp&nbsp Tests</div> 
+                    <p class="testType">Bacteria Test</p>                       
+                    <table class="table table-striped user-food testTable">
+                        <thead>
+                            <tr class="test-table-head">
+                            <th scope="col">Kit Code</th>
+                            <th scope="col " class="text-center">kit status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userBacteriaTestContain">
+                        </tbody>
+                    </table>
+                    <hr>
+                    <p class="testType">Blood Test</p>                       
+                    <table class="table table-striped user-food testTable">
+                        <thead>
+                            <tr class="test-table-head">
+                            <th scope="col">Kit Code</th>
+                            <th scope="col" class="text-center">kit status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="userBloodTestContain">
+                        </tbody>
+                    </table>
+                </div>
+        </div>
+        <button id="modalClick"style="display:none" type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal"></button>
+
+        <div id="myModal" class="modal fade" role="dialog">
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title testResModalTit">Test  Result</h4>
+              </div>
+              <div class="modal-body row testResTable">
+                    <div class="col-sm-12 ingred-item ">
+                            <div class="plate" id="first-test"  style="margin-bottom: 10px" >     
+                                <!-- <div class="ingred-item-bar testCat1"id="first-bar" style="background-color: rgb(52, 200, 182)" >&nbsp&nbsp Metabolic</div>                         -->
+                                <table class="table table-striped  user-plate"  style=" margin-top:20px;">
+                                        <thead>
+                                            <tr class="test-table-head" style="background-color: #fc544b;">
+                                            <th scope="col">Name</th>
+                                            <th scope="col">Value</th>
+                                            <th scope="col">Category</th>
+                                            </tr>
+                                        </thead>
+                                    <tbody id="testResultTable">
+                                    </tbody>
+                                </table>
+                            </div>
+                    </div>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default editModalbtn" data-dismiss="modal">More Info</button>
+                <button type="button" class="btn btn-default closeModalbtn" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    </div>
+    </div>
+
+    <script src="./js/jquery.min.js"></script>
+    <script src="./js/customer.js"></script>    
+</body>
+</html>
