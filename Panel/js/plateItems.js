@@ -133,6 +133,10 @@ $(document).ready(function(){
                                                 window.location="PlateItems.html";
                                             }, 1000);
                                         }
+                                        else if(jd.code=='100'){
+                                            alert(jd.msg);
+                                             window.location="PlateItems.html";
+                                        }
                                     },
                                     error: function(jqXHR, textStatus, errorThrown){
                                         alert(textStatus);
