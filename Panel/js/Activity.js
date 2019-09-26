@@ -111,6 +111,10 @@ $(document).ready(function(){
                                                     window.location="Activity.html";
                                                 }, 1500);
                                             }
+                                            else if(jd.code=='100'){
+                                                alert(jd.msg);
+                                                 window.location="Activity.html";
+                                            }
                                         },
                                         error: function(jqXHR, textStatus, errorThrown){
                                             alert(textStatus);
