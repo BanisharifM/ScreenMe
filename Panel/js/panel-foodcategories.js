@@ -128,6 +128,10 @@ $(document).ready(function(){
                                                     window.location="panel.html";
                                                 }, 1500);
                                             }
+                                            else if(jd.code=='100'){
+                                                alert(jd.msg);
+                                                 window.location="panel.html";
+                                            }
                                         },
                                         error: function(jqXHR, textStatus, errorThrown){
                                             alert(textStatus);
