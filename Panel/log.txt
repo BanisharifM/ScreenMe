@@ -1,7 +1,0 @@
-default pic for add Activity
-
-redesign ingredient page 
-
-border radius for table 
-
-add plate item doesnt work  ***
