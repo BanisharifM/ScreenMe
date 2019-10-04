@@ -28,8 +28,27 @@ $(document).ready(function(){
                 $("#email").html(localStorage.getItem('usersEmail'));
                 $("#kitStatus").html(localStorage.getItem('kitStatus'));
                 $("#address").html(localStorage.getItem('userAddress'));
-                $("#postalCode").html(localStorage.getItem('userPostalCode'));       
-                $("#postalCode").html(localStorage.getItem('userPostalCode'));   
+                $("#postCode").html(localStorage.getItem('userPostCode'));       
+                $("#birthDate").html(localStorage.getItem('userBirthDate').substring(0,11));   
+                $("#weight").html(localStorage.getItem('userWeight'));   
+                $("#height").html(localStorage.getItem('userHeight'));   
+                let userSex=localStorage.getItem("userSex"),sex;
+                switch(userSex){
+                    case "0": 
+                        sex="male";
+                        break;
+                    case "1" :
+                        sex="female";
+                        break;
+                    case "2" : 
+                        sex="other";
+                        break;
+                    default:
+                        sex="male"
+
+                }
+                $("#sex").html(sex);   
+
 
                 //change user pic
                 var avatarUrl="http://medvisit.ir/screenMePic/"+localStorage.getItem("userPic");
@@ -871,5 +890,131 @@ $(document).ready(function(){
         localStorage.setItem("pass",null);
         window.location="login.html"
     });
+
+
+    //edit user
+    let userEditMode="default";
+    document.getElementById('userAvatar').addEventListener('click', () => {
+        if(userEditMode=="edit"){
+            document.getElementById('userAvatarInp').click()                
+        }
+    })
+    document.getElementById('userAvatarInp').onchange = imageUrlChange;
+
+    function imageUrlChange(){
+        uploadedFile=event.target.files[0];
+        $("#userAvatar").attr('src', URL.createObjectURL(uploadedFile));
+    }
     
+    $("#editSchoolIcon").click(function(){
+        if(userEditMode=="default"){
+            userEditMode="edit";
+
+            $("#firstNameInp").val($("#firstName").html());
+            $("#surNameInp").val($("#surName").html());
+            $("#emailInp").val($("#email").html());
+            $("#addressInp").val($("#address").html());
+            $("#postCodeInp").val($("#postCode").html());
+            $("#birthDateInp").val($("#birthDate").html());
+            $("#weightInp").val($("#weight").html());
+            $("#heightInp").val($("#height").html());
+            $("#sex"+localStorage.getItem("userSex")).attr('selected', 'selected');
+            enableEditSchool();
+        }
+    });
+    $("#saveSchoolIcon").click(function(){
+        if(userEditMode=="edit"){
+            if($("#imageUrl").attr('src')!=SchoolInformation.imageUrl)
+                PutAvatar(SchoolInformation.id);
+            let name=$("#schoolNameInp").val();
+            let text=$("#schoolDetailInp").val();
+            if(name!=SchoolInformation.name||text!=SchoolInformation.text){
+                let datas={
+                    "name" :name ,
+                    "text": text,
+                }
+                PutSchoolInformation(SchoolInformation.id,datas);
+            }
+            else{
+                userEditMode="default";
+                disableEditSchool();
+            }
+        }
+    });
+    $("#cancelSchoolIcon").click(function(){
+        if(userEditMode=="edit"){
+            userEditMode="default"
+            $("#imageUrl").attr('src',SchoolInformation.imageUrl);
+
+            disableEditSchool();
+        }
+    });
+    function enableEditSchool(){
+
+        $("#editSchoolIcon").hide();
+        $("#saveSchoolIcon").show();
+        $("#cancelSchoolIcon").show();
+
+        $("#firstName").hide();
+        $("#firstNameInp").show();
+
+        $("#surName").hide();
+        $("#surNameInp").show();
+
+        $("#email").hide();
+        $("#emailInp").show();
+
+        $("#address").hide();
+        $("#addressInp").show();
+
+        $("#postCode").hide();
+        $("#postCodeInp").show();
+
+        $("#birthDate").hide();
+        $("#birthDateInp").show();
+
+        $("#sex").hide();
+        $("#sexInp").show();
+
+        $("#weight").hide();
+        $("#weightInp").show();
+
+        $("#height").hide();
+        $("#heightInp").show();
+    }
+    function disableEditSchool(){
+
+        $("#editSchoolIcon").show();
+        $("#saveSchoolIcon").hide();
+        $("#cancelSchoolIcon").hide();
+
+
+        $("#firstName").show();
+        $("#firstNameInp").hide();
+
+        $("#surName").show();
+        $("#surNameInp").hide();
+
+        $("#email").show();
+        $("#emailInp").hide();
+
+        $("#address").show();
+        $("#addressInp").hide();
+
+        $("#postCode").show();
+        $("#postCodeInp").hide();
+
+        $("#birthDate").show();
+        $("#birthDateInp").hide();
+
+        $("#sex").show();
+        $("#sexInp").hide();
+
+        $("#weight").show();
+        $("#weightInp").hide();
+
+        $("#height").show();
+        $("#heightInp").hide();
+
+    }
 });

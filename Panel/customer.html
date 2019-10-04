@@ -77,17 +77,80 @@
         <div id="main-contain" class="row">
             <div class="userprofile">
                 <div class="row">
+                    <button class="btn btn-primary" id="editSchool" >
+                        <i class="fas fa-pencil-alt f-14 mr-0" id="editSchoolIcon" data-toggle="tooltip"
+                        data-placement="top" title="edit"></i>
+                        <i class="fas fa-check-circle f-14 mr-0" id="saveSchoolIcon" style="display:none;"data-toggle="tooltip"
+                        data-placement="top" title="save"></i>
+                    <i id="cancelSchoolIcon" class="fas fa-times-circle f-14 mr-0r label text-white" style="display:none"data-toggle="tooltip"
+                    data-placement="bottom" title="cancle"></i>
+                    </button>
                     <div class="col-sm-3 avatar">
-                        <div class="avatar-image"><img class="avatar-ico" id="userAvatar"></div>
+                        <div class="avatar-image">
+                            <img class="avatar-ico" id="userAvatar" alt="customer">
+                            <!-- <img class="img-fluid" style="width:100%; height: 100%;" id="imageUrl"> -->
+                            <input id="userAvatarInp" type="file" accept="image/*" style="display: none" />
+                        </div>
                     </div>
-                    <div class="col-sm-9 userprofile-info">
-                        <div class="user-information">
-                             <h2 class="user-firstname">First name : &nbsp<span id="firstName"></span></h2>
-                             <h2 class="user-familyname">Sur name : &nbsp<span id="surName"></span></h2>
-                             <h2 class="user-familyname">Email : &nbsp<span id="email"></span></h2>
-                             <h2 class="user-familyname">Address : &nbsp<span id="address"></span></h2>
-                             <h2 class="user-familyname">Postal Code : &nbsp<span id="postalCode"></span></h2>
-                             <h2 class="user-familyname">Kit status : &nbsp<span id="kitStatus"></span></h2>
+                    <div class=" row col-sm-9 userprofile-info">
+                        <div class="row col-sm-6">
+                            <div class="col-sm-12">
+                                    <h2 class="user-familyname"style="float:left;">First Name : &nbsp<span id="firstName" ></span></h2>
+                                    <input id="firstNameInp" type="text" style="margin-top: 20px;background-color: inherit; display: none;" value="">
+                            </div>
+                            <div class="col-sm-12">
+                                    <h2 class="user-familyname">Surname : &nbsp<span id="surName"></span></h2>
+                                    <input id="surNameInp" type="text" style="margin-top: 20px;background-color: inherit; display: none;" value="">
+                            </div>
+                            <div class="col-sm-12">
+                                    <h2 class="user-familyname">Email : &nbsp<span id="email"></span></h2>
+                                    <input id="emailInp" type="text" style="margin-top: 20px;background-color: inherit; display: none;" value="">
+                            </div>
+                            <div class="col-sm-12">
+                                    <h2 class="user-familyname">Address : &nbsp<span id="address"></span></h2>
+                                    <input id="addressInp" type="text" style="margin-top: 20px;background-color: inherit; display: none;" value="">
+                            </div>
+                            <div class="col-sm-12">
+                                    <h2 class="user-familyname">Post Code : &nbsp<span id="postCode"></span></h2>
+                                    <input id="postCodeInp" type="text" style="margin-top: 20px;background-color: inherit; display: none;" value="">
+                            </div>
+                            <div class="col-sm-12">
+                                    <h2 class="user-familyname"style="float:left;"> BirthDate : &nbsp<span id="birthDate" ></span></h2>
+                                    <input id="birthDateInp" type="text" style="margin-top: 20px;background-color: inherit; display: none;" value="">
+                            </div>
+
+                        </div>
+
+                        <div class="row col-sm-6">
+                            <div class="col-sm-12">
+                                    <h2 class="user-familyname" style="float:left;">Sex : &nbsp<span id="sex"></span></h2>
+                                    <select class="selectpicker" style="background-color: inherit;margin-top: 20px;">
+                                        <option id="sex0">male</option>
+                                        <option id="sex1">female</option>
+                                        <option id="sex2">other</option>
+                                    </select>
+                            </div>
+                            <div class="col-sm-12">
+                                    <h2 class="user-familyname"style="float:left;">Age : &nbsp<span id="age" ></span></h2>
+                                    <input id="ageInp" type="text" style="margin-top: 20px;background-color: inherit; display: none;" value="">
+                            </div>
+                            <div class="col-sm-12">
+                                    <h2 class="user-familyname"style="float:left;">Weight : &nbsp<span id="weight" ></span></h2>
+                                    <input id="weightInp" type="text" style="margin-top: 20px;background-color: inherit; display: none;" value="">
+                            </div>
+                            <div class="col-sm-12">
+                                    <h2 class="user-familyname"style="float:left;">Height : &nbsp<span id="height" ></span></h2>
+                                    <input id="heightInp" type="text" style="margin-top: 20px;background-color: inherit; display: none;" value="">
+                            </div>
+                            <div class="col-sm-6">
+                                    <h2 class="user-familyname"style="float:left;">BMI : &nbsp<span id="BMI" ></span></h2>
+                                    <input id="BMIInp" type="text" style="margin-top: 20px;background-color: inherit; display: none;" value="">
+                            </div>
+                            <div class="col-sm-12">
+                                    <h2 class="user-familyname">Kit status : &nbsp<span id="kitStatus"></span></h2>
+                                    <input id="kitStatusInp" type="text" style="margin-top: 20px;background-color: inherit; display: none;" value="">
+                            </div>
+
                         </div>
                     </div>
                 </div>

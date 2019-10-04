@@ -33,7 +33,12 @@ $(document).ready(function(){
                                 localStorage.setItem("kitStatus",jd.result[j]['kit status']);
                                 localStorage.setItem("userPic",jd.result[j].pic);
                                 localStorage.setItem("userAddress",jd.result[j].address);
-                                localStorage.setItem("userPostalCode",jd.result[j].postalCode);
+                                localStorage.setItem("userPostCode",jd.result[j].postCode);
+                                localStorage.setItem("userWeight",jd.result[j].weight);
+                                localStorage.setItem("userHeight",jd.result[j].height);
+                                localStorage.setItem("userSex",jd.result[j].sex);
+                                localStorage.setItem("userBirthDate",jd.result[j].birthDate);
+                                
                             }
                         }
                         localStorage.setItem("userId",user_selected);
