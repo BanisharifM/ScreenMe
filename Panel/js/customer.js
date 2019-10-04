@@ -30,8 +30,14 @@ $(document).ready(function(){
                 $("#address").html(localStorage.getItem('userAddress'));
                 $("#postCode").html(localStorage.getItem('userPostCode'));       
                 $("#birthDate").html(localStorage.getItem('userBirthDate').substring(0,11));   
-                $("#weight").html(localStorage.getItem('userWeight'));   
-                $("#height").html(localStorage.getItem('userHeight'));   
+                $("#age").html(getAge(localStorage.getItem('userBirthDate')));   
+
+                let userWeight=localStorage.getItem('userWeight');
+                let userHeight=localStorage.getItem('userHeight');
+                $("#weight").html(userWeight);   
+                $("#height").html(userHeight);   
+                $("#BMI").html(getBMI(userWeight,userHeight));
+
                 let userSex=localStorage.getItem("userSex"),sex;
                 switch(userSex){
                     case "0": 
@@ -893,7 +899,7 @@ $(document).ready(function(){
 
 
     //edit user
-    let userEditMode="default";
+    let userEditMode="default",uploadedFile=false;
     document.getElementById('userAvatar').addEventListener('click', () => {
         if(userEditMode=="edit"){
             document.getElementById('userAvatarInp').click()                
@@ -924,28 +930,49 @@ $(document).ready(function(){
     });
     $("#saveSchoolIcon").click(function(){
         if(userEditMode=="edit"){
-            if($("#imageUrl").attr('src')!=SchoolInformation.imageUrl)
-                PutAvatar(SchoolInformation.id);
-            let name=$("#schoolNameInp").val();
-            let text=$("#schoolDetailInp").val();
-            if(name!=SchoolInformation.name||text!=SchoolInformation.text){
-                let datas={
-                    "name" :name ,
-                    "text": text,
-                }
-                PutSchoolInformation(SchoolInformation.id,datas);
+            var avatarUrl="http://medvisit.ir/screenMePic/"+localStorage.getItem("userPic");
+            if($("#userAvatar").attr('src')!=avatarUrl)
+                avatarUrl="-1";
+            else
+                avatarUrl=localStorage.getItem("userPic");
+            const datas = new FormData();
+            datas.append('email',"4@g.com");
+            datas.append('pass',"4");
+            datas.append('customerId',localStorage.getItem('userId'));
+            datas.append('firstName',$("#firstNameInp").val());
+            datas.append('surName',$("#surNameInp").val());
+            // datas.append('costomerEmail',$("#emailInp").val());
+            datas.append('address',$("#addressInp").val());
+            datas.append('postCode',$("#postCodeInp").val());
+            datas.append('weight',$("#weightInp").val());
+            datas.append('height',$("#heightInp").val());
+            datas.append('birthDate',$("#birthDateInp").val());
+            datas.append('pic',avatarUrl);
+            datas.append('uploaded_file',uploadedFile);
+
+            let userSex=$('#sexInp').find(":selected").text();;
+            switch(userSex){
+                case "male": 
+                    sex=0;
+                    break;
+                case "female" :
+                    sex=1;
+                    break;
+                case "other" : 
+                    sex=2;
+                    break;
+                default:
+                    sex=0
             }
-            else{
-                userEditMode="default";
-                disableEditSchool();
-            }
+            datas.append('sex',sex);
+            editing(datas);
+
         }
     });
     $("#cancelSchoolIcon").click(function(){
         if(userEditMode=="edit"){
             userEditMode="default"
-            $("#imageUrl").attr('src',SchoolInformation.imageUrl);
-
+            $("#imageUrl").attr('src',"http://medvisit.ir/screenMePic/"+localStorage.getItem("userPic"));
             disableEditSchool();
         }
     });
@@ -961,8 +988,8 @@ $(document).ready(function(){
         $("#surName").hide();
         $("#surNameInp").show();
 
-        $("#email").hide();
-        $("#emailInp").show();
+        // $("#email").hide();
+        // $("#emailInp").show();
 
         $("#address").hide();
         $("#addressInp").show();
@@ -995,8 +1022,8 @@ $(document).ready(function(){
         $("#surName").show();
         $("#surNameInp").hide();
 
-        $("#email").show();
-        $("#emailInp").hide();
+        // $("#email").show();
+        // $("#emailInp").hide();
 
         $("#address").show();
         $("#addressInp").hide();
@@ -1016,5 +1043,53 @@ $(document).ready(function(){
         $("#height").show();
         $("#heightInp").hide();
 
+    }
+    function editing(datas){
+        event.preventDefault();
+        setTimeout(function() 
+        {  
+            $.ajax({
+                type: 'POST',
+                url: 'http://medvisit.ir/screenMe/api/public/editCustomerInfo',
+                data : datas,
+                enctype: 'multipart/form-data',
+                processData: false,  
+                contentType: false,
+                success: function(jd){
+                    result=jd;
+                    if(jd.code=='200'){
+                        localStorage.setItem("firstName",jd.result.firstName);
+                        localStorage.setItem("surName",jd.result.surName);
+                        localStorage.setItem("usersEmail",jd.result.email);
+                        localStorage.setItem("userPic",jd.result.pic);
+                        localStorage.setItem("userAddress",jd.result.address);
+                        localStorage.setItem("userPostCode",jd.result.postCode);
+                        localStorage.setItem("userWeight",jd.result.weight);
+                        localStorage.setItem("userHeight",jd.result.height);
+                        localStorage.setItem("userSex",jd.result.sex);
+                        localStorage.setItem("userBirthDate",jd.result.birthDate);
+                        window.location="customer.html";
+                        
+                    }
+                        
+                },
+                error: function(jqXHR, textStatus, errorThrown){
+                    alert(textStatus);
+                }
+            });
+        }, 2500);
+    }
+    function getAge(dateString) {
+        var today = new Date();
+        var birthDate = new Date(dateString);
+        var age = today.getFullYear() - birthDate.getFullYear();
+        var m = today.getMonth() - birthDate.getMonth();
+        if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+            age--;
+        }
+        return age;
+    }
+    function getBMI(weight,height){
+        return (Number(weight)/(Number(height)*Number(height))*703).toFixed(2)
     }
 });

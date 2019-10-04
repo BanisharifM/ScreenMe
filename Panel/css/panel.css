@@ -12,6 +12,18 @@ textarea {
    padding:3px;
    margin:none;
 }
+input[type="button"]{
+    outline:none;
+ }
+ input[type="button"]::-moz-focus-inner {
+    border: 0;
+ }
+ button:focus {
+    border: none;
+    outline: none;
+}
+button:focus{outline:none !important;}
+
 #message-box {
 	resize: none;
 	width: 80%;
