@@ -2,7 +2,6 @@
   <br>
   <a href="https://www.dream-home.ir/"><img src="/Panel/img/ScreenmeLogo.png" alt="Dream Home" width="200"></a>
   <br>
-  ScreenMe
   <br>
 </h1>
 
