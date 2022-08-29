@@ -10,16 +10,7 @@
 
 ![screenshot](Panel/img/PanelView.png)
 
-## Key Features
-
-- Discover any house anywhere limitless
-- Virtual life
-- Real estate and interior design
-- Try numerous designs
-
-![OUR SPECIALIZATION](images/gallery/extra.jpg)
-
-## What We Do For You
+## What ScreenMe Do
 
 - Personalised nutrition to help maximise your fertility.
 - For a successful conception, healthy pregnancy and beyond.
@@ -27,5 +18,5 @@
 
 ---
 
-> [dream-home.ir](https://screenme.co.uk/) &nbsp;&middot;&nbsp;
+> [screenme.co.uk](https://screenme.co.uk/) &nbsp;&middot;&nbsp;
 > GitHub [@BanisharifM](https://github.com/BanisaharifM) &nbsp;&middot;&nbsp;
